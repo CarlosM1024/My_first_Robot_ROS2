@@ -1,0 +1,73 @@
+<?xml version="1.0"?>
+<robot>
+    <link name="base_link">
+        <visual>
+            <origin xyz="0 0 0.125" rpy="0 0 0" /> <!-- Altura el robot, arriba del suelo, 0.125m o 12.5cm -->
+            <geometry>
+                <box size="0.4 0.25 0.15" /> <!-- Tamaño del robot, 40cm de largo, 25cm de ancho y 15cm de alto -->
+            </geometry>
+            <material name="base_link_material">
+                <color rgba="0.85 0.0 0.0 1.0" /> <!-- Color rojo para el robot -->
+            </material>
+        </visual>
+    </link>
+
+    <!-- Rueda izquierda -->
+    <joint name="left_wheel_joint" type="continuous">
+        <origin xyz="-0.1 0.15 0.05" rpy="-1.570796 0 0" /> <!-- Posición de la rueda izquierda, 0.1m hacia atrás, 0.15m hacia la izquierda, 0.05m hacia arriba. En rotación -1.570796 o 90 grados en el eje Z -->
+        <axis xyz="0 0 1" /> <!-- Eje de rotación de la rueda izquierda, alrededor del eje Z -->
+        <parent link="base_link" /> <!-- El padre de la rueda izquierda es el link base_link -->
+        <child link="left_wheel" /> <!-- El hijo de la rueda izquierda es el link left_wheel -->
+    </joint>
+    <link name="left_wheel">
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0" /> <!-- Posición de la rueda izquierda, en el centro del link left_wheel -->
+            <geometry>
+                <cylinder length="0.04" radius="0.05" /> <!-- Tamaño de la rueda izquierda, 4cm de largo y 5cm de radio -->
+            </geometry>
+            <material name="gray">
+                <color rgba="0.5 0.5 0.5 1.0" /> <!-- Color gris para la rueda izquierda -->
+            </material>
+        </visual>
+    </link>
+
+    <!-- Rueda derecha -->
+    <joint name="right_wheel_joint" type="continuous">
+        <origin xyz="-0.1 -0.15 0.05" rpy="-1.570796 0 0" /> <!-- Posición de la rueda derecha, 0.1m hacia atrás, 0.15m hacia la derecha, 0.05m hacia arriba. En rotación -1.570796 o 90 grados en el eje Z -->
+        <axis xyz="0 0 1" /> <!-- Eje de rotación de la rueda derecha, alrededor del eje Z -->
+        <parent link="base_link" /> <!-- El padre de la rueda derecha es el link base_link -->
+        <child link="right_wheel" /> <!-- El hijo de la rueda derecha es el link right_wheel -->
+    </joint>
+    <link name="right_wheel">
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0" /> <!-- Posición de la rueda derecha, en el centro del link right_wheel -->
+            <geometry>
+                <cylinder length="0.04" radius="0.05" /> <!-- Tamaño de la rueda derecha, 4cm de largo y 5cm de radio -->
+            </geometry>
+            <material name="gray">
+                <color rgba="0.5 0.5 0.5 1.0" /> <!-- Color gris para la rueda derecha -->
+            </material>
+        </visual>
+    </link>
+
+    <!-- Rueda de apoyo -->
+    <joint name="connection_link" type="fixed"> <!-- Joint para conectar la rueda de apoyo al robot, de tipo fijo, es decir, no se mueve -->
+        <origin xyz="0.15 0 0.05" rpy="0 0 0" /> <!-- Posición de la rueda de apoyo, 0.15m hacia adelante, 0m hacia los lados, 0.05m hacia arriba -->
+        <axis xyz="0 0 1" /> <!-- Eje de rotación de la rueda de apoyo, alrededor del eje Z -->
+        <parent link="base_link" /> <!-- El padre de la rueda de apoyo es el link base_link -->
+        <child link="caster_wheel" /> <!-- El hijo de la rueda de apoyo es el link caster_wheel -->
+    </joint>
+    <link name="caster_wheel"> 
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0" /> <!-- Posición de la rueda de apoyo, en el centro del link caster_wheel -->
+            <geometry>
+                <sphere radius="0.05" /> <!-- Tamaño de la rueda de apoyo, 5cm de radio -->
+            </geometry>
+            <material name="black">
+                <color rgba="0 0 0 1.0" /> <!-- Color negro para la rueda de apoyo -->
+            </material>
+        </visual>
+    </link>
+
+    
+</robot>
