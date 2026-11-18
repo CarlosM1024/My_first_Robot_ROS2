@@ -30,7 +30,7 @@
 ## 📸 Demo
 
 <div align="center">
-  <img src="media/image1.png" alt="Complete Demo" width="350"/>
+  <img src="media/image1.png" alt="Complete Demo" width="750"/>
   <p><i>Demo of robot in RViz2</i></p>
 </div>
 
