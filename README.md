@@ -27,6 +27,15 @@
 
 ---
 
+## 📸 Demo
+
+<div align="center">
+  <img src="media/image1.png" alt="Complete Demo" width="350"/>
+  <p><i>Demo of robot in RViz2</i></p>
+</div>
+
+---
+
 ## 1. Add the Repository to Your Workspace
 
 In a terminal, open the `src` directory of your ROS 2 workspace and clone this repository:
