@@ -189,6 +189,17 @@ En otro terminal, ejecuta la siguiente instrucción para hacer aparecer el model
 Si no agregamos ninguna coordenada en específico, el modelo aparecerá en el origen del sistema de coordenadas del mundo.   
 NOTA: Este procedimiento sólo funciona con robots descritos únicamente mediante formas básicas en URDF. Para modelos construidos a partir de archivos *mesh* se debe utilizar otro procedimiento.
 ## 6. Siguientes pasos
-- Para agregar un controlador a tu robot, pasa a este tutorial: https://youtu.be/3Q9U6D1uC2U   
-- Para controlar tu modelo simulado con un joystick: https://youtu.be/mP-rBK-ST-8   
-- Para contruir modelos más complejos utilizando archivos *mesh* y elementos adicionales mediante *xacro*, pasa a este tutorial: 
+
+Tambien se realizo lo del tutorial que se describe en este video: https://youtu.be/zIkWGv5pKLY
+Incluye, además, algunos aplicativos adicionales que permiten dar movimiento al robot.
+
+my_robot_controller
+Un simple controlador en lazo abierto. Recibe comandos de velocidad desde el tópico /cmd_vel y publica la posición del robot a través del tópico de odometría /odom.
+Instrucciones detalladas aquí: https://youtu.be/3Q9U6D1uC2U
+
+Para enviar comandos de velocidad vía consola a nuestro robot, puede utilizarse la siguiente instrucción:
+ros2 topic pub --rate 10 /cmd_vel geometry_msgs/msg/Twist "{linear: {x: 0.2, y: 0.0, z: 0.0}, angular: {x: 0.0, y: 0.0, z: 0.2}}"
+
+joy_velocity_publisher
+Convierte movimientos de un joystick en comandos de velocidad que son publicados mediante el tópico /cmd_vel.
+Instrucciones detalladas aquí: https://youtu.be/mP-rBK-ST-8
